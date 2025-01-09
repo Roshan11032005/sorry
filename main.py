@@ -1,19 +1,7 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
-import requests
 
 # Set up the page layout
 st.set_page_config(page_title="Apology to Junior", page_icon="💖", layout="wide")
-
-# Load a Lottie animation
-def load_lottie_url(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
-    return response.json()
-
-# Beautiful animation for apology
-apology_animation = load_lottie_url("https://assets4.lottiefiles.com/packages/lf20_vfcbaz.json")
 
 # Page Title
 st.title("🌟 Dear Junior, I'm So Sorry 🌟")
@@ -27,16 +15,16 @@ st.markdown(
     """
 )
 
-# Display animation
-if apology_animation:
-    st_lottie(apology_animation, height=400, key="apology")
-
-# Add heartfelt quotes
+# Divider and Section Header
+st.divider()
 st.write("### 🌸 Some Words from My Heart 🌸")
+
+# Display Quotes
 quotes = [
     "Friendship is delicate as glass; once broken, it can be fixed but there will always be cracks. Please help me fix it. ❤️",
     "True friends are never apart, maybe in distance but never in heart. I've missed you so much, Junior. 💕",
     "A simple sorry can save a relationship that took years to build. Junior, I'm sorry and I hope we can mend things. 🙏",
+    "Good friends are like stars. You don’t always see them, but you know they’re always there. Please let our friendship shine again. 🌟",
 ]
 
 for quote in quotes:
@@ -46,3 +34,13 @@ for quote in quotes:
 if st.button("💌 Junior, Please Forgive Me 💌"):
     st.balloons()
     st.success("Thank you, Junior, for being the wonderful person you are. I've missed you so much, and I promise to always cherish our friendship. ❤️")
+
+# Add a footer message
+st.divider()
+st.markdown(
+    """
+    **Thank you for reading this, Junior.**
+    \nLet's make our friendship stronger than ever. 💖
+    """
+)
+
